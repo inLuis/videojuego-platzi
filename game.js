@@ -29,7 +29,12 @@ function startGame(){
   // game.fillText('Texto', x,y);
   game.font = elementsSize+'px sans-seriff';
   game.textAlign = 'start';
+  game.textBaseline = 'top';
+  const mapRows = maps[3].trim().split('\n');
+  const mapDividedRows = mapRows.map(row => row.trim().split(''));
   for (let i=0;i<10;i++){
-    game.fillText(emojis['X'], elementsSize*i, elementsSize);
+    for (let j=0;j<10;j++){
+      game.fillText(emojis[mapDividedRows[i][j]], elementsSize*j, elementsSize*i);
+    }
   }
 }
